@@ -1,0 +1,9 @@
+{
+    "name": "ANGULAR",
+    "dockerFile": "Dockerfile",
+	"appPort": [3000],
+    "settings": { 
+		"terminal.integrated.shell.linux": "/bin/bash"
+	}
+    
+}
