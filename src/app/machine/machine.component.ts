@@ -14,7 +14,7 @@ export class MachineComponent {
     public machines: Machine[] = [];
 
     // Define API
-    apiURL = 'https://localhost:49155';
+    apiURL = 'https://localhost:49153';
 
     
     // Http Options
