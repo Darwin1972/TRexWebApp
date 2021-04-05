@@ -1,6 +1,6 @@
 import {Component,Inject} from '@angular/core';
 import {HttpClient, HttpHeaders } from '@angular/common/http';
-
+import { environment } from './../../environments/environment';
 import {Machine} from './machine';
 
 @Component({
@@ -12,11 +12,8 @@ import {Machine} from './machine';
 
 export class MachineComponent {
     public machines: Machine[] = [];
-
-    // Define API
-    apiURL = 'https://localhost:49153';
-
-    
+    private apiURL: string;
+ 
     // Http Options
     httpOptions = {
         headers: new HttpHeaders({
@@ -24,13 +21,14 @@ export class MachineComponent {
         'X-Requested-With': 'XMLHttpRequest'
       })
     }
+    constructor(private http: HttpClient) {  
+        this.apiURL = environment.apiUrl;
+    }
 
-    constructor(private http: HttpClient) { }
-
-        ngOnInit(){
-            this.http.get<Machine[]>(this.apiURL + '/WeatherForecast')
-            .subscribe(result => {
-                this.machines = result;
-            }, error => console.error(error));
-        }    
+    ngOnInit(){
+        this.http.get<Machine[]>(this.apiURL + '/WeatherForecast')
+        .subscribe(result => {
+            this.machines = result;
+        }, error => console.error(error));
+    }   
 }
