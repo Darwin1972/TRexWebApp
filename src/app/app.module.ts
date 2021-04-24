@@ -6,18 +6,21 @@ import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { MachineComponent } from './machine/machine.component';
+import { MachinesComponent } from './machines/machines.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MachineComponent
+    MachineComponent,
+    MachinesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     RouterModule.forRoot([
-      {path: 'machines', component: MachineComponent}
+      {path: 'machine', component: MachineComponent},
+      {path: 'machines', component: MachinesComponent}
     ])
 
   ],
